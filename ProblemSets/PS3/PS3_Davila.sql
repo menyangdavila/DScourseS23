@@ -17,15 +17,15 @@ CREATE TABLE florida_insurance (
     line TEXT,
     construction TEXT,
     point_granularity INT
-);
+); 
 
 .mode csv
 .import /home/ouecon003/DScourseS23/ProblemSets/PS3/FL_insurance_sample.csv florida_insurance
 
 SELECT * FROM florida_insurance LIMIT 10;
 
-SELECT DISTINCT county FROM florida_insurance;
+SELECT DISTINCT county FROM florida_insurance; /* list unique counties.*/ 
 
-SELECT AVG(tiv_2012 - tiv_2011) AS avg_appreciation FROM florida_insurance;
+SELECT AVG(tiv_2012 - tiv_2011) AS avg_appreciation FROM florida_insurance; /* calculate average appreciation.*/ 
 
-SELECT construction, COUNT(*) AS frequency FROM florida_insurance GROUP BY construction; 
+SELECT construction, COUNT(*) AS frequency FROM florida_insurance GROUP BY construction; /* create frequency table.*/ 
