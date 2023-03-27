@@ -1,0 +1,91 @@
+\documentclass{article}
+
+
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{text-series-to-math = true ,
+propagate-math-font = true}
+
+
+\title{PS 7}
+\author{Mengyang Davila}
+\date{March 28, 2023}
+
+\doublespacing
+\begin{document}
+
+\maketitle
+\subsection*{Summary Statistics}
+The missing rate for the variable $logwage$ is 25 percent. I believe that this variable is missing not at random, as it may be missing specifically from individuals who are still in school.
+\begin{table}[htbp]
+\centering
+\caption{Sumamry Statistics}
+\begin{tabular}[t]{lrrrrrrr}
+\toprule
+  & Unique (\#) & Missing (\%) & Mean & SD & Min & Median & Max\\
+\midrule
+logwage & 670 & 25 & \num{1.6} & \num{0.4} & \num{0.0} & \num{1.7} & \num{2.3}\\
+hgc & 16 & 0 & \num{13.1} & \num{2.5} & \num{0.0} & \num{12.0} & \num{18.0}\\
+tenure & 259 & 0 & \num{6.0} & \num{5.5} & \num{0.0} & \num{3.8} & \num{25.9}\\
+age & 13 & 0 & \num{39.2} & \num{3.1} & \num{34.0} & \num{39.0} & \num{46.0}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection*{Regression Table}
+As more precise methods are used to fill in missing variables, regression coefficients tend to become larger and closer to their true values. The multiple imputation regression model is a powerful tool for handling missing data, providing more accurate estimates and greater statistical power compared to methods such as listwise deletion or single imputation.
+
+The estimated $\hat{\beta_1}$ using the assumption of missing at random (filling in missing values with predicted values) is 0.534, which is statistically significant from zero. The estimated $\hat{\beta_1}$ using the multiple imputation regression method is 0.609, which is also statistically significant from zero and closer to the true value than other methods.
+\FloatBarrier
+\begin{table}[ht]
+\centering
+\caption{Table 2: Regression Model}
+\begin{tabular}[t]{lcccc}
+\toprule
+  & Listwise deletion & Fill mean & Fill predicted & Mice\\
+\midrule
+$Intercept$ & \num{0.534}*** & \num{0.708}*** & \num{0.534}*** & \num{0.609}***\\
+ & (\num{0.146}) & (\num{0.116}) & (\num{0.112}) & (\num{0.138})\\
+$hgc$ & \num{0.062}*** & \num{0.050}*** & \num{0.062}*** & \num{0.060}***\\
+ & (\num{0.005}) & (\num{0.004}) & (\num{0.004}) & (\num{0.006})\\
+$college$ & \num{0.145}*** & \num{0.168}*** & \num{0.145}*** & \num{0.118}***\\
+ & (\num{0.034}) & (\num{0.026}) & (\num{0.025}) & (\num{0.032})\\
+$tenure$ & \num{0.050}*** & \num{0.038}*** & \num{0.050}*** & \num{0.041}***\\
+ & (\num{0.005}) & (\num{0.004}) & (\num{0.004}) & (\num{0.005})\\
+$tenure^2$ & \num{-0.002}*** & \num{-0.001}*** & \num{-0.002}*** & \num{-0.001}***\\
+ & (\num{0.000}) & (\num{0.000}) & (\num{0.000}) & (\num{0.000})\\
+$age$ & \num{0.000} & \num{0.000} & \num{0.000} & \num{0.000}\\
+ & (\num{0.003}) & (\num{0.002}) & (\num{0.002}) & (\num{0.003})\\
+$married$ & \num{-0.022} & \num{-0.027}* & \num{-0.022}+ & \num{-0.018}\\
+ & (\num{0.018}) & (\num{0.014}) & (\num{0.013}) & (\num{0.017})\\
+\midrule
+Num.Obs. & \num{1669} & \num{2229} & \num{2229} & \num{2229}\\
+Num.Imp. &  &  &  & \num{5}\\
+R2 & \num{0.208} & \num{0.147} & \num{0.277} & \num{0.224}\\
+R2 Adj. & \num{0.206} & \num{0.145} & \num{0.275} & \num{0.222}\\
+AIC & \num{1179.9} & \num{1091.2} & \num{925.5} & \\
+BIC & \num{1223.2} & \num{1136.8} & \num{971.1} & \\
+Log.Lik. & \num{-581.936} & \num{-537.580} & \num{-454.737} & \\
+RMSE & \num{0.34} & \num{0.31} & \num{0.30} & \\
+\bottomrule
+\multicolumn{5}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\subsection*{Final Project}
+For my final project, I intend to investigate whether the dismissal of audit committee members can be considered a reliable indicator of low financial reporting quality. To accomplish this, I plan to utilize data on directors and committees obtained from Boardex to determine the timing of audit committee member turnover. Additionally, I will control for various director characteristics that may impact financial reporting quality.
+
+To investigate this relationship, I will employ a logistic regression model, with the dependent variable being an indicator variable for financial statement restatement. By doing so, I hope to uncover any potential association between audit committee member dismissal and financial reporting quality, while accounting for any confounding factors that may be present in the data. 
+\end{document}
