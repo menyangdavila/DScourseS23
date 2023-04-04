@@ -1,0 +1,81 @@
+\documentclass{article}
+
+
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{text-series-to-math = true ,
+propagate-math-font = true}
+
+
+\title{PS 8}
+\author{Mengyang Davila}
+\date{April 4, 2023}
+
+\doublespacing
+\begin{document}
+
+\maketitle
+\section*{Results Comparison}
+\subsection*{Question 5}
+The estimates obtained using matrices closely approximate the true $\beta$ value with high precision.
+
+\subsection*{Question 6}
+The estimates obtained using gradient closely approximate the true $\beta$ value.
+
+\subsection*{Question 7}
+The estimates obtained using nloptr's L-BFGS and Nelder-Mead algorithms are highly similar to each other and closely approximate the true $\beta$ value.
+
+\subsection*{Question 8}
+The estimates of $\hat{\beta}$ obtained using the lm() function closely approximate the true $\beta$ values that were used to generate the data in (1). The Ordinary Least Squares (OLS) estimates are presented on the following page.
+
+\FloatBarrier
+\begin{table}[htbp]
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & (1)\\
+\midrule
+X1 & \num{1.501}\\
+ & \vphantom{9} (\num{0.002})\\
+X2 & \num{-0.996}\\
+ & \vphantom{8} (\num{0.002})\\
+X3 & \num{-0.249}\\
+ & \vphantom{7} (\num{0.002})\\
+X4 & \num{0.747}\\
+ & \vphantom{6} (\num{0.002})\\
+X5 & \num{3.502}\\
+ & \vphantom{5} (\num{0.002})\\
+X6 & \num{-1.999}\\
+ & \vphantom{4} (\num{0.002})\\
+X7 & \num{0.501}\\
+ & \vphantom{3} (\num{0.002})\\
+X8 & \num{0.999}\\
+ & \vphantom{2} (\num{0.002})\\
+X9 & \num{1.253}\\
+ & \vphantom{1} (\num{0.002})\\
+X10 & \num{1.999}\\
+ & (\num{0.002})\\
+\midrule
+Num.Obs. & \num{1e+05}\\
+R2 & \num{0.991}\\
+R2 Adj. & \num{0.991}\\
+AIC & \num{144993.2}\\
+BIC & \num{145097.9}\\
+Log.Lik. & \num{-72485.615}\\
+RMSE & \num{0.50}\\
+\bottomrule
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\end{document}
