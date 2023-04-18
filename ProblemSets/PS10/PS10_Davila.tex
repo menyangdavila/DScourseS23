@@ -1,0 +1,52 @@
+\documentclass{article}
+
+
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{text-series-to-math = true ,
+propagate-math-font = true}
+
+
+\title{PS 10}
+\author{Mengyang Davila}
+\date{April 18, 2023}
+
+\doublespacing
+\begin{document}
+
+\maketitle
+
+\subsection*{Question 9}
+
+\begin{table}[h]
+	\centering
+\begin{tabular}{|l|r|l|}
+	\hline
+	Algorithm & Accuracy & Hyperparameters\\
+	\hline
+	Logit & 0.85 & penalty = 0.00\\
+	\hline
+	Decision trees  & 0.87 & min\_n = 10, tree\_depth = 15, cost\_complexity = 0.00 \\
+	\hline
+	Neural Network & 0.85 & penalty = 0.08, hidden units = 9\\
+	\hline
+	KNN & 0.84 & neighbors = 30\\
+	\hline
+	SVM & 0.86 & cost = 1, rbf\_sigma = 0.25\\
+	\hline
+\end{tabular}
+\end{table}
+
+Based on the accuracy results, all machine learning algorithms have shown similar accuracy levels on the testing data, with the tree model exhibiting the best out-of-sample performance. The logistic model is the most efficient in terms of time, achieving comparable accuracy, while the SVM model takes the longest.
+
+\end{document}
