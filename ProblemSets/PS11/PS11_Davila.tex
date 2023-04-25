@@ -1,0 +1,343 @@
+\documentclass[12pt,english]{article}
+\usepackage{mathptmx}
+
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkblue}{RGB}{0.,0.,139.}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{lipsum}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{pdflscape}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=false,
+ colorlinks,citecolor=black,filecolor=black,
+ linkcolor=black,urlcolor=black]
+ {hyperref}
+\usepackage[all]{hypcap} % Links point to top of image, builds on hyperref
+
+\linespread{2}
+
+\begin{document}
+
+\begin{singlespace}
+\title{Audit Committee Member Selection and Internal Control Material Weakness Reporting}
+\end{singlespace}
+
+\author{Mengyang Davila\thanks{John T. Steed School of Accounting, University of Oklahoma.\
+E-mail~address:~\href{mailto:mengyang.davila@ou.edu}{mengyang.davila@ou.edu}}}
+
+% \date{\today}
+\date{April 25, 2023}
+
+\maketitle
+\begin{abstract}
+
+\begin{singlespace}
+This paper explores whether management deliberately selects audit committee members to ensure more relaxed oversight and governance in order to avoid disclosing internal control material weakness. The study finds no evidence of a consistent relationship between management incentives and audit committee selection. This result may be due to some companies voluntarily selecting high-quality audit committees with stricter governance, which cancels out the effect of certain opportunistic selection complainants. The study then investigates whether this relationship exists in companies with less independent boards. The sample is further divided based on whether the CEO also serves as the board chair. The results suggest that companies with less independent boards are more likely to intentionally select audit committee members to obtain more lenient governance over their internal control reporting.
+\end{singlespace}
+
+\end{abstract}
+\vfill{}
+
+
+\pagebreak{}
+
+
+\section{Introduction}\label{sec:intro}
+Since the enactment of the Sarbanes-Oxley Act in 2002 in response to the Enron scandal, it has been mandatory for all public companies to establish an audit committee comprising independent members to oversee the financial reporting process and ensure the independence of external auditors (\citet{cth2019}). However, despite this requirement, some opportunistic management may prefer selecting low-quality audit committees that could allow them to engage in opportunistic reporting behavior and avoid reporting negative information that could harm the company's market reaction. This is because previous studies have found that reporting negative information about the company results in a negative market reaction. Therefore, to avoid reporting internal control material weakness truthfully, management may try to select audit committees with lax governance. This can harm the quality of financial reporting and undermine the trust of investors and stakeholders. Therefore, this paper aims to investigate whether companies engage in opportunistic selection of their audit committee, and to what extent this behavior is prevalent in the market.
+
+\section{Literature Review and Hypothesis Development}\label{sec:litreview}
+\subsection{Internal Control Effectiveness}
+Prior literature on accoutning have examined the determinants of weaknesses in internal control for firms disclosing material weaknesses in their SEC filings. \citet{dgm2007} find certain characteristics are associated with more significant entity-wide control issues. These characteristics include being smaller, younger, financially weaker, more complex, growing rapidly, or undergoing restructuring. \citet{gm2005} study revealed that material weaknesses in internal control are usually related to an insufficient commitment of resources for accounting controls and tend to occur in current accrual accounts, complex accounts, and in firms with greater business complexity and lower profitability.
+
+\subsection{Role of Audit Committee in Financial reporting}
+\subsection{Audit committee Selection}
+
+The null hypothesis for this study is that companies do not engage in opportunistic selection of their audit committee, meaning that there is no significant relationship between a company's selection of its audit committee and any potential opportunistic motives.
+
+
+\section{Data and Sample}\label{sec:data}
+I obtained information on internal control material weaknesses reported by companies from Audit Analytics, financial data for the companies from Compustat and CRSP, and data on board characteristics from Boardex. As a result of the Sarbanes-Oxley Act of 2002, which required management of public companies to assess the effectiveness of their internal controls for financial reporting, I have chosen to start my sample period from 2004. This is to avoid any potential impact on the reliability of voluntarily reported internal control effectiveness. Furthermore, I have chosen to end my sample period in 2019 in order to mitigate any concerns regarding COVID-19's impact on audit committee member turnover and replacement.
+
+For my analysis, I used two samples, each consisting of 33,313 observations. The first sample was utilized to estimate the likelihood of management reporting internal control material weakness, while the second sample was used to estimate the opportunistic behavior of management in selecting audit committee members to avoid reporting ineffective internal control. Table1 \ref{tab:descriptives}presents the summary statistics for both samples.
+
+
+\section{Empirical Methods}\label{sec:methods}
+I adopt the approach proposed by \citet{lennox2000} to investigate whether management opportunistically selects audit committee members with the aim of ensuring lenient oversight and governance, thereby avoiding the disclosure of internal control material weakness. My analysis focuses on internal control assessment, as prior research has shown that investors react negatively to such disclosures (\citet{hm2008}), providing management with an incentive to avoid them.
+
+My first step is to estimate the predicted likelihood that management would disclose internal control weakness using a Probit model shown below: 
+
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\begin{align*}
+Pr(Mgr 404 = 1) &=\alpha_{0} + \alpha_{1}Lag Mgr 404 + \alpha_{2} Turnover + \alpha_{3} Lag Mgr 404*Turnover\\
+&+ Controls + FEs + \varepsilon
+\end{align*}
+
+The dependent variable in this study is denoted as $Pr(Mgr\ 404 = 1)$, which takes the value of one if management discloses ineffective internal control in the annual report and zero otherwise. The coefficient on $Lag\ Mgr\ 404$, represented as $\alpha_{1}$, is expected to be positive and significant, indicating that if management reported internal control material weakness in the prior year, they are more likely to report it in the current year. Additionally, an indicator variable $Turnover$ is included in the model, which takes the value of one if there is a turnover on the audit committee and zero otherwise. Consistent with prior literature (\citet{gm2005}), the model also controls for other factors that may affect the likelihood of reporting internal control weakness, including whether the company has foreign income ($Foreign Currency$), whether the company is audited by a Big 6 auditor ($Large Auditor$), the number of business segments ($Segments$), book value ($Book Value$), market value ($Mkt Value$), and profitability ($ROA$ and $CFO$).
+
+Next, the estimated model is used to calculate the conditional probabilities of a company reporting internal control material weakness when there is a change in audit committee membership ($Pr(Mgr\ 404 = 1|Turnover = 1)$) and when the incumbent audit committee is retained ($Pr(Mgr\ 404 = 1|Turnover = 0)$). As in prior studies (\citet{lennox2000}, \citet{npww2016}, \citet{aep2021}), the incentive for management to change audit committee membership is measured as the difference between the probability of reporting internal control material weakness when the incumbent audit committee is retained and the probability of reporting internal control material weakness when there is a turnover on the audit committee. A higher value for this difference indicates a greater probability that management would opportunistically change the audit committee in order to seek lax financial reporting governance.
+
+My second step is to investigate the potential relationship between audit committee turnover and management incentive in opportunistic audit committee selection by employing the following model:
+\setlength{\abovedisplayskip}{0pt}
+\begin{equation*}
+Pr(Turnover = 1) =\beta_{0} + \beta_{1}Incentive + Controls + FEs + \varepsilon
+\end{equation*}
+
+The dependent variable in this model is the propensity of turnover on the audit committee ($Turnover$), and the variable of interest is management incentives in opportunistic audit committee selection. The coefficient, $\beta_{1}$, is expected to be positive and significant. I include controls for board characteristics, such as whether the CEO also serves as board chair, board size, and the proportion of independent directors on the board. I also control for company complexity ($size$), financial risk ($Leverage$, $ROA$, $Loss$, $BTM$, and $Mkt Adj Ret$), and whether the company trades in NYSE ($Exchange$). Additionally, I consider institutional ownership ($Ins Own$) and the number of analysts following the company ($Analyst Coverage$) as control variables.
+
+\section{Research Findings}\label{sec:results}
+The results for the predicted model are presented in Table \ref{tab:prediction}. As hypothesized, the coefficient on $Lag Mgr 404$ is positive and statistically significant, indicating that there is a higher probability for management to report ineffective internal control if it has been reported in the previous year. Moreover, the association between the lagged material weakness and the current year's material weakness reporting is more significant when there is a turnover on the audit committee, as evidenced by the positive and significant coefficient on the interaction term. The results also suggest that management is less likely to report internal control material weakness when the company is more profitable or audited by a big 6 auditor, which could be attributed to a lower likelihood of internal control material weakness for those companies.
+
+The results of the turnover model are presented in Table \ref{tab:turnover}. However, the coefficient for $Incentive$ did not exhibit any significant or positive correlation. This may suggest that only a select subset of companies would intentionally choose their audit committee members to obtain more lenient governance over their internal control reporting, while others may choose a strict audit committee to improve the quality of their internal control reporting. To gain deeper insights into this issue, the study further investigates the potential for opportunistic audit committee selection in different subgroups.
+
+To achieve this, the sample is divided into two subgroups based on whether the CEO also serves as the board chair. The existence of CEO duality may lead to power concentration and a lack of board independence, which in turn may increase the likelihood of opportunistic and unlawful behaviors. Therefore, analyzing these subgroups may offer valuable information on the potential impact of CEO duality on the audit committee selection process. The results are presented in Table \ref{tab:cs}. When the incentives are high, companies with CEO duality are more likely to replace their incumbent audit committee in an opportunistic attempt to avoid reporting internal control material weakness.
+
+
+
+\section{Conclusion}\label{sec:conclusion}
+
+
+\vfill
+\pagebreak{}
+\begin{spacing}{1.0}
+\bibliographystyle{jpe}
+\bibliography{PS11_Davila.bib}
+\addcontentsline{toc}{section}{References}
+\end{spacing}
+
+\vfill
+\pagebreak{}
+\clearpage
+
+%========================================
+% FIGURES AND TABLES 
+%========================================
+\section*{Figures and Tables}\label{sec:figTables}
+\addcontentsline{toc}{section}{Figures and Tables}
+%----------------------------------------
+% Figure 1
+%----------------------------------------
+\begin{figure}[ht]
+\centering
+\bigskip{}
+\includegraphics[width=.65\linewidth]{figure1.png}
+\caption{Turnover Incentives by Industry}
+\label{fig:fig1}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.65\linewidth]{figure2.png}
+\caption{Turnover Incentives by Year}
+\label{fig:fig2}
+\end{figure}
+
+%----------------------------------------
+% Table 1
+%----------------------------------------
+\begin{table}[ht]
+\caption{Summary Statistics}
+\label{tab:descriptives} 
+\centering
+\begin{threeparttable}
+\begin{tabular}{lcccccc}
+&&&&\\
+\multicolumn{7}{l}{\emph{Panel A: Summary Statistics for Prediction Model}}\\
+\toprule
+   & Missing (\%) & Mean & SD & Min & Median & Max\\
+\midrule
+Mgr 404 & 0 & \num{0.1} & \num{0.2} & \num{0.0} & \num{0.0} & \num{1.0}\\
+Lag Mgr 404 & 0 & \num{0.1} & \num{0.2} & \num{0.0} & \num{0.0} & \num{1.0}\\
+Turnover & 0 & \num{0.9} & \num{0.2} & \num{0.0} & \num{1.0} & \num{1.0}\\
+Segments & 0 & \num{1.9} & \num{1.7} & \num{1.0} & \num{1.0} & \num{19.0}\\
+Foreign Currency & 0 & \num{0.3} & \num{0.4} & \num{0.0} & \num{0.0} & \num{1.0}\\
+Book Value & 0 & 2,469.6 & 11,631.8 & -13,244.0 & \num{340.4} & 424,791.0\\
+Mkt Value & 0 & 6,626.5 & 29,135.7 & \num{0.7} & \num{806.5} & 1,073,390.5\\
+ROA & 0 & \num{-0.0} & \num{1.2} & \num{-32.2} & \num{0.0} & \num{208.4}\\
+CFO  & 0 & \num{0.0} & \num{0.2} & \num{-5.3} & \num{0.1} & \num{3.6}\\
+Large Auditor & 0 & \num{0.8} & \num{0.4} & \num{0.0} & \num{1.0} & \num{1.0}\\
+&&&&\\
+\multicolumn{7}{l}{\emph{Panel B: Summary Statistics for Turnover Model}}\\
+\midrule
+  & Missing (\%) & Mean & SD & Min & Median & Max\\
+\midrule
+Incentive & 0 & \num{0.0} & \num{0.0} & \num{-0.2} & \num{0.0} & \num{0.0}\\
+Turnover & 0 & \num{0.9} & \num{0.2} & \num{0.0} & \num{1.0} & \num{1.0}\\
+Duality & 0 & \num{0.1} & \num{0.3} & \num{0.0} & \num{0.0} & \num{1.0}\\
+Board Size & 0 & \num{7.5} & \num{2.9} & \num{1.0} & \num{7.0} & \num{29.0}\\
+Size & 0 & \num{6.9} & \num{2.2} & \num{-0.9} & \num{7.0} & \num{14.8}\\
+Leverage & 0 & \num{0.2} & \num{0.3} & \num{0.0} & \num{0.2} & \num{9.2}\\
+ROA & 0 & \num{-0.0} & \num{1.2} & \num{-32.2} & \num{0.0} & \num{208.4}\\
+Loss & 0 & \num{0.3} & \num{0.5} & \num{0.0} & \num{0.0} & \num{1.0}\\
+Mkt Adj Ret & 0 & \num{0.0} & \num{0.5} & \num{-1.0} & \num{-0.0} & \num{29.6}\\
+BTM & 0 & \num{0.6} & \num{1.2} & \num{-132.5} & \num{0.5} & \num{30.2}\\
+Ins Own & 0 & \num{0.5} & \num{0.4} & \num{0.0} & \num{0.6} & \num{1.0}\\
+Analyst Coverage & 0 & \num{1.6} & \num{1.0} & \num{0.0} & \num{1.6} & \num{4.0}\\
+Exchange & 0 & \num{0.0} & \num{0.0} & \num{0.0} & \num{0.0} & \num{1.0}\\
+\bottomrule
+\end{tabular}
+\footnotesize Notes: Sample size for all variables in Panel A and B: $N=33,313$.
+\end{threeparttable}
+\end{table}
+
+
+%----------------------------------------
+% Table 2
+%----------------------------------------
+\begin{table}[ht]
+\caption{Regression for Prediction Model}
+\label{tab:prediction} 
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & (1)\\
+\midrule
+Lag Mgr 404 & \num{0.253}***\\
+ & \vphantom{1} (\num{0.022})\\
+Turnover & \num{0.003}\\
+ & (\num{0.005})\\
+Segments & \num{0.001}\\
+ & \vphantom{1} (\num{0.001})\\
+Foreign Currency & \num{0.002}\\
+ & \vphantom{1} (\num{0.003})\\
+Book Value & \num{0.000}\\
+ & \vphantom{1} (\num{0.000})\\
+Mkt Value & \num{0.000}**\\
+ & (\num{0.000})\\
+ROA & \num{-0.002}*\\
+ & (\num{0.001})\\
+CFO & \num{-0.046}***\\
+ & (\num{0.006})\\
+Large Auditor & \num{-0.024}***\\
+ & (\num{0.003})\\
+Lag Mgr 404 × Turnover & \num{0.150}***\\
+ & (\num{0.022})\\
+Industry Fixed Effects  & $\checkmark$\\
+Year Fixed Effects      & $\checkmark$\\
+\midrule
+Num.Obs. & 33,313\\
+R2 Adj. & \num{0.161}\\
+AIC & -6,679.3\\
+BIC & -6,586.7\\
+RMSE & \num{0.22}\\
+\bottomrule
+\multicolumn{2}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
+\end{tabular}
+\end{table}
+
+
+%----------------------------------------
+% Table 3
+%----------------------------------------
+\begin{table}[ht]
+\caption{Regression for Turnover Model}
+\label{tab:turnover}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & (1)\\
+\midrule
+Incentive & \num{0.058}\\
+ & (\num{0.038})\\
+Duality & \num{-0.070}***\\
+ & \vphantom{1} (\num{0.005})\\
+Board Size & \num{-0.007}***\\
+ & \vphantom{3} (\num{0.001})\\
+Size & \num{-0.005}***\\
+ & \vphantom{2} (\num{0.001})\\
+Leverage & \num{0.015}**\\
+ & (\num{0.005})\\
+ROA & \num{0.001}\\
+ & \vphantom{1} (\num{0.001})\\
+Loss & \num{0.005}\\
+ & \vphantom{1} (\num{0.003})\\
+Mkt Adj Ret & \num{0.005}+\\
+ & (\num{0.003})\\
+BTM & \num{0.006}***\\
+ & (\num{0.001})\\
+Ins Own & \num{-0.014}***\\
+ & (\num{0.004})\\
+Analyst Coverage & \num{0.002}\\
+ & (\num{0.002})\\
+Exchange & \num{0.059}\\
+ & (\num{0.057})\\
+Industry Fixed Effects  & $\checkmark$\\
+Year Fixed Effects      & $\checkmark$\\
+\midrule
+Num.Obs. & 33,313\\
+R2 & \num{0.021}\\
+R2 Adj. & \num{0.020}\\
+AIC & \num{-535.0}\\
+BIC & \num{-425.6}\\
+RMSE & \num{0.24}\\
+\bottomrule
+\multicolumn{2}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
+\end{tabular}
+\end{table}
+
+
+%----------------------------------------
+% Table 4
+%----------------------------------------
+\begin{table}
+\caption{Cross-sectional Tests for Turnover Model}
+\label{tab:cs}
+\centering
+\begin{tabular}[t]{lcc}
+\toprule
+  & CEO Duality - Yes & CEO Duality - No\\
+\midrule
+Incentive & \num{0.783}** & \num{0.035}\\
+ & (\num{0.286}) & (\num{0.037})\\
+Board Size & \num{0.004} & \num{-0.007}***\\
+ & (\num{0.003}) & \vphantom{1} (\num{0.001})\\
+Size & \num{-0.011}+ & \num{-0.004}***\\
+ & (\num{0.006}) & (\num{0.001})\\
+Leverage & \num{-0.027} & \num{0.018}***\\
+ & (\num{0.032}) & (\num{0.005})\\
+ROA & \num{0.125}* & \num{0.001}\\
+ & (\num{0.049}) & (\num{0.001})\\
+Loss & \num{0.040}+ & \num{0.003}\\
+ & (\num{0.024}) & (\num{0.003})\\
+Mkt Adj Ret & \num{-0.021} & \num{0.006}*\\
+ & (\num{0.021}) & (\num{0.003})\\
+BTM & \num{0.004} & \num{0.007}***\\
+ & (\num{0.003}) & (\num{0.001})\\
+Ins Own & \num{-0.076}** & \num{-0.012}**\\
+ & (\num{0.024}) & (\num{0.004})\\
+Analyst Coverage & \num{-0.015} & \num{0.003}\\
+ & (\num{0.011}) & (\num{0.002})\\
+Exchange &  & \num{0.059}\\
+ &  & (\num{0.054})\\
+Industry Fixed Effects  & $\checkmark$    & $\checkmark$\\
+Year Fixed Effects      & $\checkmark$    & $\checkmark$\\
+\midrule
+Num.Obs. & 2,232 & 31,081\\
+R2 & \num{0.024} & \num{0.013}\\
+R2 Adj. & \num{0.011} & \num{0.012}\\
+AIC & 1,558.4 & -3,219.5\\
+BIC & 1,621.2 & -3,119.4\\
+RMSE & \num{0.34} & \num{0.23}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
+\end{tabular}
+\end{table}
+
+
+\end{document}
